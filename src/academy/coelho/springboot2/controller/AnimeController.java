@@ -23,7 +23,7 @@ import lombok.extern.log4j.Log4j2;
 public class AnimeController {
 
 	private final DateUtil dateUtil; 
-
+ 
 	//localhost:8080/anime/list
 	@GetMapping(path = "list")
 	public List<Anime> list() {
