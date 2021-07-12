@@ -20,7 +20,7 @@ public class AnimeService {
 		public List<Anime> listAll() {
 			return  animes;
 		}
-
+ 
 		public Anime findById(long id) {
 			return  animes.stream().filter(anime -> anime.getId().equals(id))
 					.findFirst()
