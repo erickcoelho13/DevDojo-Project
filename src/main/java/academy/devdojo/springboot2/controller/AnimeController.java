@@ -40,7 +40,7 @@ public class AnimeController {
     public ResponseEntity<Anime> findById(@PathVariable long id){
         return ResponseEntity.ok(animeService.findByIdOrThrowBadRequestException(id));
     }
-    
+     
     @PostMapping
    // @ResponseStatus(HttpStatus.CREATED)
     	public ResponseEntity<Anime> save(@RequestBody AnimePostRequestBody animePostRequestBody) {
