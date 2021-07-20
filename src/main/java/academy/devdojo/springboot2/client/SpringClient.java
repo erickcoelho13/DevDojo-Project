@@ -17,7 +17,7 @@ public class SpringClient {
         log.info(entity);
 
         Anime[] animes = new RestTemplate().getForObject("http://localhost:8080/animes/all", Anime[].class);
-        
+
         log.info(Arrays.toString(animes));
 
         ResponseEntity<List<Anime>> exchange = new RestTemplate().exchange("http://localhost:8080/animes/all", HttpMethod.GET, null,
@@ -34,7 +34,27 @@ public class SpringClient {
                 HttpMethod.POST,
                 new HttpEntity<>(samuraiChamplo, createJsonHeader()),
                 Anime.class);
+
         log.info("saved anime {}", samuraiChamploSaved);
+
+        Anime animeToBeUpdated = samuraiChamploSaved.getBody();
+        animeToBeUpdated.setName("Samurai Champlo 2");
+
+        ResponseEntity<Void> samuraiChamploUpdated = new RestTemplate().exchange("http://localhost:8080/animes/",
+                HttpMethod.PUT,
+                new HttpEntity<>(animeToBeUpdated, createJsonHeader()),
+                Void.class);
+
+        log.info(samuraiChamploUpdated);
+
+
+        ResponseEntity<Void> samuraiChamploDeleted = new RestTemplate().exchange("http://localhost:8080/animes/{id}",
+                HttpMethod.DELETE,
+                null,
+                Void.class,
+                animeToBeUpdated.getId());
+
+        log.info(samuraiChamploDeleted);
     }
 
     private static HttpHeaders createJsonHeader(){
