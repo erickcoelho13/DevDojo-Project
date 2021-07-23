@@ -1,14 +1,12 @@
 package academy.devdojo.springboot2.util;
 
-import academy.devdojo.springboot2.domain.Anime;
-import academy.devdojo.springboot2.requests.AnimePostRequestBody;
+import academy.devdojo.springboot2.requests.AnimePutRequestBody;
 
-public class AnimePostRequestBodyCreator {
-
-    public static AnimePostRequestBody createAnimePostRequestBody() {
-        return AnimePostRequestBody.builder()
-                .name(AnimeCreator.createAnimeToBeSaved().getName())
+public class AnimePutRequestBodyCreator {
+    public static AnimePutRequestBody createAnimePutRequestBody() {
+        return AnimePutRequestBody.builder()
+                .id(AnimeCreator.createValidUpdatedAnime().getId())
+                .name(AnimeCreator.createValidUpdatedAnime().getName())
                 .build();
     }
-
 }
