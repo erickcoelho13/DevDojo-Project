@@ -12,14 +12,14 @@ public class AnimeCreator {
 
     public static Anime createValidAnime() {
         return Anime.builder()
-                .name("Hakuna matata 2")
+                .name("DragonBall")
                 .id(1L)
                 .build();
     }
 
     public static Anime createValidUpdatedAnime() {
         return Anime.builder()
-                .name("Hakuna matata 2")
+                .name("Pokemon")
                 .id(1L)
                 .build();
     }
